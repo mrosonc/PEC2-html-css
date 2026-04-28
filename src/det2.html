@@ -13,7 +13,23 @@
 
     <main id="contenido-principal">
         <h1>Empanada gallega</h1>
-        <img src="./assets/img/platos/empanada-hero.jpg" alt="Plato tradicional de Empanada gallega" width="600">
+        <picture>
+            <source
+                type="image/webp"
+                srcset="./assets/img/platos/empanada-hero.jpg?as=webp&amp;width=640 640w, ./assets/img/platos/empanada-hero.jpg?as=webp&amp;width=1050 1050w"
+                sizes="(min-width: 1100px) 900px, calc(100vw - 4rem)"
+            >
+            <img
+                class="imagen-destacada"
+                src="./assets/img/platos/empanada-hero.jpg?width=640"
+                srcset="./assets/img/platos/empanada-hero.jpg?width=640 640w, ./assets/img/platos/empanada-hero.jpg?width=1050 1050w"
+                sizes="(min-width: 1100px) 900px, calc(100vw - 4rem)"
+                alt="Plato tradicional de Empanada gallega"
+                width="1050"
+                height="720"
+                decoding="async"
+            >
+        </picture>
         
         <p>La empanada es una de las preparaciones culinarias más antiguas y versátiles de Galicia. Su función originaria estaba vinculada a la necesidad de disponer de un alimento nutritivo, fácil de transportar y duradero para pastores, peregrinos y trabajadores del campo.</p>
 
@@ -23,9 +39,18 @@
 
         <h2>Galería del proceso</h2>
         <div class="galeria">
-            <img src="./assets/img/platos/empanada-1.jpg" alt="Amasado tradicional" width="250">
-            <img src="./assets/img/platos/empanada-2.jpg" alt="Preparación del sofrito (zaragallada)" width="250">
-            <img src="./assets/img/platos/empanada-3.jpg" alt="Empanada gallega recién horneada" width="250">
+            <picture>
+                <source type="image/webp" srcset="./assets/img/platos/empanada-1.jpg?as=webp&amp;width=271 271w, ./assets/img/platos/empanada-1.jpg?as=webp&amp;width=542 542w" sizes="(min-width: 900px) 250px, 80vw">
+                <img src="./assets/img/platos/empanada-1.jpg?width=271" srcset="./assets/img/platos/empanada-1.jpg?width=271 271w, ./assets/img/platos/empanada-1.jpg?width=542 542w" sizes="(min-width: 900px) 250px, 80vw" alt="Amasado tradicional" width="271" height="186" loading="lazy" decoding="async">
+            </picture>
+            <picture>
+                <source type="image/webp" srcset="./assets/img/platos/empanada-2.jpg?as=webp&amp;width=320 320w, ./assets/img/platos/empanada-2.jpg?as=webp&amp;width=640 640w" sizes="(min-width: 900px) 250px, 80vw">
+                <img src="./assets/img/platos/empanada-2.jpg?width=320" srcset="./assets/img/platos/empanada-2.jpg?width=320 320w, ./assets/img/platos/empanada-2.jpg?width=640 640w" sizes="(min-width: 900px) 250px, 80vw" alt="Preparación del sofrito" width="320" height="232" loading="lazy" decoding="async">
+            </picture>
+            <picture>
+                <source type="image/webp" srcset="./assets/img/platos/empanada-3.jpg?as=webp&amp;width=320 320w, ./assets/img/platos/empanada-3.jpg?as=webp&amp;width=640 640w" sizes="(min-width: 900px) 250px, 80vw">
+                <img src="./assets/img/platos/empanada-3.jpg?width=320" srcset="./assets/img/platos/empanada-3.jpg?width=320 320w, ./assets/img/platos/empanada-3.jpg?width=640 640w" sizes="(min-width: 900px) 250px, 80vw" alt="Empanada gallega recién horneada" width="320" height="283" loading="lazy" decoding="async">
+            </picture>
         </div>
 
         <h2>Videoreceta tradicional</h2>
