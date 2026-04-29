@@ -92,12 +92,13 @@ nav a {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: color 0.3s;
+    transition: color 180ms ease, opacity 180ms ease;
 }
 
-nav a:hover, nav a:focus {
+nav a:hover, nav a:focus-visible {
     color: #ffffff;
     text-decoration: none;
+    opacity: 0.92;
 }
 
 .skip-link {
@@ -128,10 +129,17 @@ li {
 a {
     color: var(--color-enlace);
     text-decoration: none;
+    transition: color 180ms ease, text-decoration-color 180ms ease;
 }
 
-a:hover, a:focus {
+a:hover, a:focus-visible {
     text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid rgba(146, 64, 14, 0.45);
+    outline-offset: 4px;
 }
 
 h1, h2, h3 {
@@ -165,7 +173,7 @@ picture {
 #presentacion {
     position: relative;
     border-radius: 8px;
-    padding: 7rem 2rem;
+    padding: 8rem 2rem;
     text-align: center;
     color: #ffffff;
     overflow: hidden;
@@ -193,6 +201,21 @@ picture {
     border-radius: 0;
 }
 
+.hero-cutout {
+    position: absolute;
+    right: clamp(1rem, 4vw, 3rem);
+    bottom: clamp(-1.25rem, -2vw, -0.5rem);
+    z-index: 2;
+    width: clamp(180px, 28vw, 320px);
+    aspect-ratio: 3 / 2;
+    margin: 0;
+    opacity: 0.92;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+    border-radius: 6px;
+    clip-path: inset(0 round 6px);
+    pointer-events: none;
+}
+
 #presentacion::before {
     content: '';
     position: absolute;
@@ -201,7 +224,7 @@ picture {
     z-index: 2;
 }
 
-#presentacion > :not(.hero-media) {
+#presentacion > :not(.hero-media, .hero-cutout) {
     position: relative;
     z-index: 3;
 }
@@ -213,6 +236,60 @@ picture {
     letter-spacing: 2px;
     margin-bottom: 1rem;
     color: #ccc;
+}
+
+.hero-svg {
+    width: clamp(72px, 11vw, 104px);
+    height: auto;
+    margin: 1.5rem auto 3rem;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.hero-svg__plate,
+.hero-svg__rim,
+.hero-svg__fork,
+.hero-svg__knife,
+.hero-svg__steam path {
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 4;
+}
+
+.hero-svg__rim {
+    opacity: 0.55;
+}
+
+.hero-svg__steam {
+    animation: steam-rise 2.8s ease-in-out infinite;
+    transform-origin: 80px 45px;
+}
+
+.hero-svg__plate {
+    animation: plate-pulse 3.2s ease-in-out infinite;
+    transform-origin: 80px 76px;
+}
+
+@keyframes steam-rise {
+    0%, 100% {
+        opacity: 0.55;
+        transform: translateY(4px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes plate-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
 }
 
 #presentacion h1 {
@@ -251,7 +328,7 @@ picture {
     text-transform: uppercase;
     text-decoration: none !important;
     margin-top: 1.5rem;
-    transition: background 0.3s, transform 0.2s;
+    transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
     font-size: 0.85rem;
     letter-spacing: 1px;
 }
@@ -260,9 +337,11 @@ picture {
     margin-left: 0.4rem;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
     background-color: #7c2d12;
     transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
 }
 
 .btn-secondary {
@@ -275,11 +354,20 @@ picture {
     font-weight: 600;
     cursor: pointer;
     margin-top: 0.5rem;
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #ffffff;
+    transform: translateY(-2px);
 }
 
 .contenido-adicional {
     max-width: 700px;
     margin: 1rem auto 0;
+    animation: fade-in-up 240ms ease-out both;
 }
 
 /* CLASES ADICIONALES */
@@ -303,6 +391,12 @@ picture {
     margin: 0;
     object-fit: cover;
     height: 200px;
+    transition: transform 220ms ease, filter 220ms ease;
+}
+
+.galeria picture:hover img {
+    filter: saturate(1.08);
+    transform: scale(1.025);
 }
 
 /* ACCESOS PRINCIPALES (TARJETAS PORTADA) */
@@ -320,11 +414,13 @@ picture {
     border-radius: 6px;
     text-align: center;
     border: 1px solid #ebebeb;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
-#accesos-principales li:hover {
+#accesos-principales li:hover,
+#accesos-principales li:focus-within {
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    border-color: rgba(146, 64, 14, 0.35);
 }
 #accesos-principales li a {
     color: var(--color-primario);
@@ -337,11 +433,57 @@ picture {
     color: var(--color-acento);
 }
 
+main > section,
+main > h1,
+main > p,
+main > ul,
+.imagen-destacada,
+.galeria,
+iframe {
+    animation: fade-in-up 300ms ease-out both;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     #presentacion h1 {
         font-size: 2rem;
     }
     .header-inner {
         flex-direction: column;
+    }
+    .hero-cutout {
+        width: 48vw;
+        opacity: 0.62;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-svg__steam,
+    .hero-svg__plate,
+    main > section,
+    main > h1,
+    main > p,
+    main > ul,
+    .imagen-destacada,
+    .galeria,
+    iframe,
+    .contenido-adicional {
+        animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
     }
 }
