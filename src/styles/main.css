@@ -222,6 +222,12 @@ picture {
     pointer-events: none;
 }
 
+.hero-cutout svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 #presentacion::before {
     content: '';
     position: absolute;
