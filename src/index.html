@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Proyecto académico sobre gastronomía gallega, sus platos tradicionales y fuentes documentales." />
         <title>Gastronomía Gallega</title>
         <link rel="stylesheet" href="./styles/main.css" />
     </head>
@@ -10,7 +11,7 @@
         <include src="src/partials/header.html"></include>
 
         <main id="contenido-principal">
-            <section id="presentacion" data-aos="fade-up">
+            <section id="presentacion">
                 <picture class="hero-media" aria-hidden="true">
                     <source
                         type="image/webp"
@@ -24,6 +25,7 @@
                         width="1120"
                         height="770"
                         alt=""
+                        fetchpriority="high"
                     >
                 </picture>
                 <div class="hero-cutout" aria-hidden="true">
@@ -49,7 +51,7 @@
                 <p>A lo largo de estas páginas, se abordarán dos de las elaboraciones más icónicas de la región: el <a href="./det1.html">Pulpo á feira</a>, un clásico imprescindible en cualquier romería, y la <a href="./det2.html">Empanada gallega</a>, un plato de origen histórico con múltiples variantes.</p>
                 <button type="button" class="btn-secondary" id="toggle-info" aria-expanded="false" aria-controls="info-adicional-portada">Ver más</button>
                 <p id="info-adicional-portada" class="contenido-adicional" hidden>La gastronomía gallega combina tradición, producto local y técnicas sencillas que han convertido platos populares y recetas festivas en una parte esencial de la identidad cultural de Galicia.</p>
-                <a href="./categoria.html" class="btn-primary">Leer más <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <a href="./categoria.html" class="btn-primary">Leer más <span class="icon-inline" aria-hidden="true">→</span></a>
             </section>
 
             <section id="accesos-principales">

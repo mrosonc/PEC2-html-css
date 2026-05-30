@@ -71,7 +71,8 @@ footer {
     font-size: 0.9rem;
 }
 
-footer i {
+.footer-mark {
+    display: inline-block;
     margin-right: 0.35rem;
     color: var(--color-acento);
 }
@@ -134,6 +135,11 @@ a {
 
 a:hover, a:focus-visible {
     text-decoration: underline;
+}
+
+main a:not(.btn-primary):not(.btn-secondary) {
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
 }
 
 a:focus-visible,
@@ -333,7 +339,7 @@ picture {
     letter-spacing: 1px;
 }
 
-.btn-primary i {
+.btn-primary .icon-inline {
     margin-left: 0.4rem;
 }
 
